@@ -73,7 +73,8 @@ This shows the monthly performance of each month for year 2023 and 2024.
 
    
 3. Excel formulas to calculate metrics such as average sales per product and total revenue by region
-   Average Sales per product usinf Excel formular
+   Average Sales per product using Excel formular;
+   
 
  
 5. Other interesting report
