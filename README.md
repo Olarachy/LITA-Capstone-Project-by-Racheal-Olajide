@@ -137,7 +137,8 @@ Other interesting reports.
 
 ### SQL
 
-  retrieve the total number of customers from each region. 
+ 1. Total number of customers from each region.
+
 o  find the most popular subscription type by the number of customers. 
 o  find customers who canceled their subscription within 6 months. 
 o  calculate the average subscription duration for all customers. 
