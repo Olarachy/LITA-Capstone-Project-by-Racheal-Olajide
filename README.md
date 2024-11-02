@@ -1,5 +1,6 @@
 # LITA-Capstone-Project-Oct-2024
-## Sales Performance Analysis for a Retail Store
+
+## Project 1 ; Sales Performance Analysis for a Retail Store
 ### Project Objective
 Explore sales data to uncover key insights such as;
 - Top Selling Products
@@ -70,12 +71,83 @@ This shows the monthly performance of each month for year 2023 and 2024.
 |Total	  |10,587,500  |
 ![image](https://github.com/user-attachments/assets/27d8c9c6-fe45-44e5-84b0-7557f3b2e791)
 
+Other Report
 
-   
-3. Excel formulas to calculate metrics such as average sales per product and total revenue by region
-   Average Sales per product using Excel formular;
-   
+### SQL
 
+ Sales Performance Analysis for a Retail Store
+
+SELECT * FROM dbo.[Capstone Sales Data ]
+
+Total sales Column
+```SELECT Quantity,UnitPrice, Quantity * UnitPrice as Total_Sales from dbo.[Capstone Sales Data ]```
+
+ALTER TABLE [dbo].[Capstone Sales Data ] add Total_Sales int
+UPDATE  [dbo].[Capstone Sales Data ] set Total_Sales = Quantity * UnitPrice
+
+Total Sales for each product category
+```SELECT Product, SUM(Total_Sales) as Total_Sales from  [dbo].[Capstone Sales Data ] group by Product```
+
+ Number of sales transaction in each region
+```SELECT Region, COUNT(Total_Sales) as No_Of_Regional_Sales_Transaction from [dbo].[Capstone Sales Data ] group by region```
+
+Highest-selling product by total sales value
+```SELECT Product, MAX(Total_Sales) as Highest_Selling_Product from [dbo].[Capstone Sales Data ] group by Product```
+
+Highest-selling product by total sales value
+```SELECT Product, SUM(Total_Sales) as Highest_Selling_Product from [dbo].[Capstone Sales Data ] group by Product
+order by Highest_Selling_Product desc```
+
+Total revenue per product
+```SELECT Product, SUM(Total_Sales) as Total_Revenue from  [dbo].[Capstone Sales Data ] group by Product```
+
+Monthly sales total for the current year
+SELECT Month(OrderDate) as Month, SUM(Quantity*UnitPrice) as Monthly_Sales from [dbo].[Capstone Sales Data ]
+where YEAR(OrderDate)= YEAR(GETDATE())
+group by Month(OrderDate)
+
+-------Top 5 customers by total purchase amount------
+SELECT Top 5 Customer_Id, SUM(Total_Sales) as Total_Purchase_Amount from  [dbo].[Capstone Sales Data ] group by Customer_Id
+order by Total_Purchase_Amount desc
+
+---------Percentage of total sales contributed by each region-------
+SELECT Region, SUM(Quantity*UnitPrice*100) as Regional_Total_Sales_Percent from [dbo].[Capstone Sales Data ]
+group by Region
+
+---------Products with no sales in the last quarter-------
+SELECT Distinct Product,OrderID,Quantity from [dbo].[Capstone Sales Data ]
+where product NOT IN
+(select distinct Product from [dbo].[Capstone Sales Data ]
+where OrderDate between '2024-07-01' and '2024-09-03'
+
+### POWER BI
+
+
+## PROJECT 2; Customer Segmentation for a Subscription Service
+
+### Excel
+
+1. Pivot tables to find subscription patterns.
+
+2. Average subscription duration
+
+2b.Most popular subscription types.
+
+Other interesting reports.
+
+### SQL
+
+  retrieve the total number of customers from each region. 
+o  find the most popular subscription type by the number of customers. 
+o  find customers who canceled their subscription within 6 months. 
+o  calculate the average subscription duration for all customers. 
+o  find customers with subscriptions longer than 12 months. 
+o  calculate total revenue by subscription type. 
+o  find the top 3 regions by subscription cancellations. 
+o  find the total number of active and canceled subscriptions.
+
+### Power BI
  
-5. Other interesting report
+Visualization of customer segments, cancellations, and subscription trends
+   
 
