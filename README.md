@@ -120,10 +120,7 @@ where product NOT IN
 (select distinct Product from [dbo].[Capstone Sales Data ]
 where OrderDate between '2024-07-01' and '2024-09-03'
 
-### POWER BI
-[click here](img width="608" alt="CAPSTONE SALES DATA" src="https://github.com/user-attachments/assets/2f5ec154-a005-4ea0-a548-23d031ec7f04")
 
-<img width="608" alt="CAPSTONE SALES DATA" src="https://github.com/user-attachments/assets/17c1b7c0-28c4-428c-9bb9-967a7e4440ba">
 
 ## PROJECT 2; Customer Segmentation for a Subscription Service
 
