@@ -194,6 +194,9 @@ SELECT COUNT(*) AS Cancelled_Subscription FROM [Capston Customer Data] WHERE Can
 
 
 ### Power BI
+https://github.com/Olarachy/LITA-Capstone-Project-by-Racheal-Olajide/issues/1#issuecomment-2457038856
+
+
  
 Visualization of customer segments, cancellations, and subscription trends
   <img width="641" alt="CAPSTONE CUSTOMER DATA" src="https://github.com/user-attachments/assets/ede4904d-e197-4168-8148-9b73eb55cc66">
