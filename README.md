@@ -137,25 +137,66 @@ Other interesting reports.
 
 ### SQL
 
- 1. Total number of customers from each region.
-```SELECT Region, COUNT(DISTINCT CustomerID) AS Total_No_customers 
-FROM [dbo].[Capston Customer Data] GROUP BY Region```
+ ```SELECT * FROM[dbo].[Capston Customer Data]
 
-2. Most popular subscription type by the number of customers.
-```SELECT  TOP 1 SubscriptionType, COUNT(DISTINCT customerid) AS Popular_Subscription
+--------Total number of customers from each region-----
+
+SELECT Region, COUNT(DISTINCT CustomerID) AS Total_No_customers 
+FROM [dbo].[Capston Customer Data] GROUP BY Region
+
+------Most popular subscription type by the number of customers------
+
+SELECT  TOP 1 SubscriptionType, COUNT(DISTINCT customerid) AS Popular_Subscription
 FROM[dbo].[Capston Customer Data]
-GROUP BY SubscriptionType```
+GROUP BY SubscriptionType
 
-3.Customers who canceled their subscription within 6 months.
- 
-o  calculate the average subscription duration for all customers. 
-o  find customers with subscriptions longer than 12 months. 
-o  calculate total revenue by subscription type. 
-o  find the top 3 regions by subscription cancellations. 
-o  find the total number of active and canceled subscriptions.
+-----Customers who canceled their subscription within 6 months-----
+
+SELECT CustomerID FROM [dbo].[Capston Customer Data] WHERE DATEDIFF(MONTH, SubscriptionStart, SubscriptionEnd) <= 6
+
+------Average subscription duration for all customers------
+
+SELECT AVG(Duration) AS Average_Subscription_Duration 
+FROM (
+SELECT DATEDIFF(DAY, SubscriptionStart, SubscriptionEnd) AS Duration 
+FROM [dbo].[Capston Customer Data] 
+) AS SubQuery
+
+
+-------Customers with subscriptions longer than 12 months-------
+
+SELECT CustomerID,SubscriptionStart, SubscriptionEnd, DATEDIFF(MONTH, SubscriptionStart, SubscriptionEnd) 
+AS Subscription_Above_12_Months FROM [dbo].[Capston Customer Data] 
+WHERE DATEDIFF(MONTH, SubscriptionStart, SubscriptionEnd)>12
+
+
+-----Total revenue by subscription type------
+
+SELECT  SubscriptionType, SUM(Revenue)AS Total_Revenue
+FROM[dbo].[Capston Customer Data] GROUP BY SubscriptionType
+
+-----Top 3 regions by subscription cancellations-----
+
+SELECT TOP 3 Region,
+COUNT(*) AS SubscriptionEnd_count
+FROM [dbo].[Capston Customer Data]
+GROUP BY Region
+ORDER BY SubscriptionEnd_Count DESC;
+
+--------Total number of active and canceled subscriptions-----
+
+--------CANCELLED SUBSCRIPTION-----
+
+SELECT COUNT(*) AS Cancelled_Subscription FROM [Capston Customer Data] WHERE Canceled = 'FALSE'
+
+--------ACTIVE SUBSCRIPTION------
+
+SELECT COUNT(*) AS Cancelled_Subscription FROM [Capston Customer Data] WHERE Canceled = 'TRUE'```
+
 
 ### Power BI
  
 Visualization of customer segments, cancellations, and subscription trends
-   
+   <img width="641" alt="CAPSTONE CUSTOMER DATA" src="https://github.com/user-attachments/assets/c4f665dd-d208-49e0-b737-ca4aff7e6668">
+
 
