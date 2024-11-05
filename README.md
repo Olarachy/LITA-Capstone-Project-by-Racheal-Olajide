@@ -121,6 +121,7 @@ where product NOT IN
 where OrderDate between '2024-07-01' and '2024-09-03'
 
 ### POWER BI
+<img width="608" alt="CAPSTONE SALES DATA" src="https://github.com/user-attachments/assets/2f5ec154-a005-4ea0-a548-23d031ec7f04">
 
 
 ## PROJECT 2; Customer Segmentation for a Subscription Service
