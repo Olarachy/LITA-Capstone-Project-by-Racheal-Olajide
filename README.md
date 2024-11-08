@@ -92,7 +92,8 @@ Total Sales for each product category
 ```SELECT Region, COUNT(Total_Sales) as No_Of_Regional_Sales_Transaction from [dbo].[Capstone Sales Data ] group by region```
 
 Highest-selling product by total sales value
-```SELECT Product, MAX(Total_Sales) as Highest_Selling_Product from [dbo].[Capstone Sales Data ] group by Product```
+
+SELECT Product, MAX(Total_Sales) as Highest_Selling_Product from [dbo].[Capstone Sales Data ] group by Product
 
 Highest-selling product by total sales value
 ```SELECT Product, SUM(Total_Sales) as Highest_Selling_Product from [dbo].[Capstone Sales Data ] group by Product
