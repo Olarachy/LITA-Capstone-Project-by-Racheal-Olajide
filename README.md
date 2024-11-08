@@ -1,7 +1,9 @@
 # LITA-Capstone-Project-Oct-2024
 
 ## Project 1 ; Sales Performance Analysis for a Retail Store
+
 ### Project Objective
+
 Explore sales data to uncover key insights such as;
 - Top Selling Products
 - Regional Performance
@@ -18,19 +20,12 @@ Explore sales data to uncover key insights such as;
 1. Initial exploaration of the sales data. Use pivot tables to summarize total sales by product, region, and month.
 
   Total sales by Product
-|Products  |	Sum of Sales |
-|----------|---------------|
-|Gloves	   |1,500,000 
-|Hat	     |1,587,500 
-|Jacket	   |1,050,000 
-|Shirt	   |2,450,000 
-|Shoes	   |3,087,500 
-|Socks	   |912,500 
-|Total	   |10,587,500 
+  
 ![image](https://github.com/user-attachments/assets/5daba623-e92d-4a15-a57d-776814f40614)
 
 
   Total sales by region
+  
 ![image](https://github.com/user-attachments/assets/04c2ea9c-30f3-4456-ac73-2dd785ff4442)
 
   
