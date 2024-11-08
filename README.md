@@ -95,6 +95,87 @@ where product NOT IN
 (select distinct Product from [dbo].[Capstone Sales Data ]
 where OrderDate between '2024-07-01' and '2024-09-03'
 
+## PROJECT 2; Customer Segmentation for a Subscription Service
+
+### Excel
+
+1. Pivot tables to find subscription patterns.
+
+2. Average subscription duration
+
+2b.Most popular subscription types.
+
+Other interesting reports.
+
+### SQL
+
+ SELECT * FROM[dbo].[Capston Customer Data]
+
+--------Total number of customers from each region-----
+
+SELECT Region, COUNT(DISTINCT CustomerID) AS Total_No_customers 
+FROM [dbo].[Capston Customer Data] GROUP BY Region
+
+------Most popular subscription type by the number of customers------
+
+SELECT  TOP 1 SubscriptionType, COUNT(DISTINCT customerid) AS Popular_Subscription
+FROM[dbo].[Capston Customer Data]
+GROUP BY SubscriptionType
+
+-----Customers who canceled their subscription within 6 months-----
+
+SELECT CustomerID FROM [dbo].[Capston Customer Data] WHERE DATEDIFF(MONTH, SubscriptionStart, SubscriptionEnd) <= 6
+
+------Average subscription duration for all customers------
+
+SELECT AVG(Duration) AS Average_Subscription_Duration 
+FROM (
+SELECT DATEDIFF(DAY, SubscriptionStart, SubscriptionEnd) AS Duration 
+FROM [dbo].[Capston Customer Data] 
+) AS SubQuery
+
+
+-------Customers with subscriptions longer than 12 months-------
+
+SELECT CustomerID,SubscriptionStart, SubscriptionEnd, DATEDIFF(MONTH, SubscriptionStart, SubscriptionEnd) 
+AS Subscription_Above_12_Months FROM [dbo].[Capston Customer Data] 
+WHERE DATEDIFF(MONTH, SubscriptionStart, SubscriptionEnd)>12
+
+
+-----Total revenue by subscription type------
+
+SELECT  SubscriptionType, SUM(Revenue)AS Total_Revenue
+FROM[dbo].[Capston Customer Data] GROUP BY SubscriptionType
+
+-----Top 3 regions by subscription cancellations-----
+
+SELECT TOP 3 Region,
+COUNT(*) AS SubscriptionEnd_count
+FROM [dbo].[Capston Customer Data]
+GROUP BY Region
+ORDER BY SubscriptionEnd_Count DESC;
+
+--------Total number of active and canceled subscriptions-----
+
+--------CANCELLED SUBSCRIPTION-----
+
+SELECT COUNT(*) AS Cancelled_Subscription FROM [Capston Customer Data] WHERE Canceled = 'FALSE'
+
+--------ACTIVE SUBSCRIPTION------
+
+SELECT COUNT(*) AS Cancelled_Subscription FROM [Capston Customer Data] WHERE Canceled = 'TRUE'```
+
+
+### Power BI
+https://github.com/Olarachy/LITA-Capstone-Project-by-Racheal-Olajide/issues/1#issuecomment-2457038856
+
+
+ 
+Visualization of customer segments, cancellations, and subscription trends
+  <img width="641" alt="CAPSTONE CUSTOMER DATA" src="https://github.com/user-attachments/assets/ede4904d-e197-4168-8148-9b73eb55cc66">
+
+[LITA Capstone Dataset Cleaned In Excel.xlsx](https://github.com/user-attachments/files/17631794/LITA.Capstone.Dataset.Cleaned.In.Excel.xlsx)
+
 
 
 
